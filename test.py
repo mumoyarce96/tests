@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 
 url = 'https://raw.githubusercontent.com/mumoyarce96/tests/main/test.csv'
-prev_df = pd.read_csv(url)
+prev_df = pd.read_csv(url, index_col = False).drop('Unnamed: 0', axis = 1)
 
 dict = {'a': [1, 2, 3],
         'b': [13, 124, 231]}
