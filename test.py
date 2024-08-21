@@ -51,4 +51,4 @@ for col in cols:
     df.insert(0, col, first_column)
 df = df.fillna(0)
 df['datetime'] = datetime.now()
-df.to_csv('lineups.csv', index = False)
+df.to_csv('test.csv', index = False)
