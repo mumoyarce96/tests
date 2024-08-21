@@ -8,9 +8,9 @@ prev_df = pd.read_csv(url, index_col = False)
 match_id = 12117188
 dfs = []
 response = requests.request("GET", f'https://api.sofascore.com/api/v1/event/{match_id}/lineups', headers={}, data = {})
-match_info = matches[matches['match_id'] == match_id].iloc[0]
-home_team = match_info['home_team']
-away_team = match_info['away_team']
+#match_info = matches[matches['match_id'] == match_id].iloc[0]
+#home_team = match_info['home_team']
+#away_team = match_info['away_team']
 if response.status_code == 200:
         home_players = response.json()['home']['players']
         away_players = response.json()['away']['players']
@@ -26,7 +26,7 @@ for i, player in enumerate(home_players):
       df['player_position'] = player['position']
       df['home'] = True
       df['match_id'] = match_id
-      df['team'] = home_team
+      #df['team'] = home_team
       dfs.append(df)
 
 for i, player in enumerate(away_players):
@@ -41,7 +41,7 @@ for i, player in enumerate(away_players):
       df['player_position'] = player['position']
       df['home'] = False
       df['match_id'] = match_id
-      df['team'] = away_team
+      #df['team'] = away_team
       dfs.append(df)
 
 df = pd.concat(dfs).reset_index(drop = True)
