@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import requests
 
-url = 'https://raw.githubusercontent.com/mumoyarce96/tests/main/test.csv'
+url = 'test.csv'
 prev_df = pd.read_csv(url, index_col = False)
 
 match_id = 12117188
