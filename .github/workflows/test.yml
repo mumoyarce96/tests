@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      # update stats
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9'
@@ -23,8 +21,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - run: pip install -r requirements.txt
-      # Eventually call scripts/fetch_augur_metrics.py and
-      # scripts/fetch_year_in_review.py as well when possible
       - run: python test.py
         env:
           OAUTH_TOKEN: ${{ secrets.GH_API_TOKEN }}
